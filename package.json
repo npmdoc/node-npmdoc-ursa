@@ -1,17 +1,40 @@
 {
-    "buildNpmdoc":"ursa",
+    "author": "kai zhu <kaizhu256@gmail.com>",
+    "buildNpmdoc": "ursa",
+    "description": "api documentation for [ursa (v0.9.4)](https://github.com/quartzjer/ursa) [![npm package](https://img.shields.io/npm/v/npmdoc-ursa.svg?style=flat-square)](https://www.npmjs.org/package/npmdoc-ursa) [![travis-ci.org build-status](https://api.travis-ci.org/npmdoc/node-npmdoc-ursa.svg)](https://travis-ci.org/npmdoc/node-npmdoc-ursa)",
     "devDependencies": {
-        "ursa": "*",
         "electron-lite": "kaizhu256/node-electron-lite#alpha",
+        "ursa": "*",
         "utility2": "kaizhu256/node-utility2#alpha"
     },
-    "name":"npmdoc-ursa",
+    "engines": {
+        "node": ">=4.0"
+    },
+    "homepage": "https://github.com/npmdoc/node-npmdoc-ursa",
+    "keywords": [
+        "documentation",
+        "ursa"
+    ],
+    "license": "MIT",
+    "main": "lib.npmdoc_ursa.js",
+    "name": "npmdoc-ursa",
+    "nameAlias": "npmdoc_ursa",
+    "nameOriginal": "npmdoc-ursa",
+    "os": [
+        "darwin",
+        "linux"
+    ],
     "repository": {
         "type": "git",
         "url": "https://github.com/npmdoc/node-npmdoc-ursa"
     },
     "scripts": {
-        "build-ci": "utility2 shReadmeTest build_ci.sh"
+        "build-ci": "utility2 shReadmeTest build_ci.sh",
+        "env": "env",
+        "heroku-postbuild": "(set -e; npm install \"kaizhu256/node-utility2#alpha\"; utility2 shDeployHeroku)",
+        "postinstall": "if [ -f npm_scripts.sh ]; then ./npm_scripts.sh postinstall; fi",
+        "start": "(set -e; export PORT=${PORT:-8080}; utility2 start test.js)",
+        "test": "(set -e; export PORT=$(utility2 shServerPortRandom); utility2 test test.js)"
     },
     "version": "0.0.1"
 }
