@@ -12197,6 +12197,7 @@ return Utf8ArrayToStr(bff);
                 dir: local.env.npm_package_buildCustomOrg,
                 modeNoApidoc: true,
                 modulePathList: options.modulePathList,
+                require: local.requireInSandbox,
                 template: local.assetsDict['/assets.readmeCustomOrg.' + local.env.GITHUB_ORG +
                     '.template.md']
             });
@@ -14147,6 +14148,20 @@ instruction\n\
                 local.jslintAndPrintConditional(local.assetsDict[key], key);
             });
             return module.exports;
+        };
+
+        local.requireInSandbox = function (file) {
+        /*
+         * this function will require the file in a sandbox-lite env
+         */
+            var exports, mockList;
+            exports = {};
+            mockList = [];
+            local.testMock(mockList, function (onError) {
+                exports = require(file);
+                onError();
+            }, local.onErrorDefault);
+            return exports;
         };
 
         local.serverRespondDefault = function (request, response, statusCode, error) {
