@@ -507,7 +507,23 @@ result in an error.
         throw new Error("Not a key.");
     }
 }</pre></li>
-    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    <li>example usage<pre class="apidocCodePre">...
+assert.throws(function () { ursa.assertPrivateKey(pub); });
+assert.doesNotThrow(function () { ursa.assertPrivateKey(priv); });
+assert.throws(function () { ursa.assertPrivateKey(undefined); });
+assert.throws(function () { ursa.assertPrivateKey("x"); });
+}
+
+function test_createKey() {
+var priv = ursa.<span class="apidocCodeKeywordSpan">createKey</span>(fixture.PRIVATE_KEY);
+assert(ursa.isPrivateKey(priv), true);
+
+var pub = ursa.createKey(fixture.PUBLIC_KEY);
+assert(ursa.isPublicKey(pub), true);
+
+function f1() {
+    ursa.createKey("yo there");
+...</pre></li>
     </ul>
 
 
