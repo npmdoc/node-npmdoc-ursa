@@ -1,6 +1,6 @@
 # npmdoc-ursa
 
-#### api documentation for  [ursa (v0.9.4)](https://github.com/quartzjer/ursa)  [![npm package](https://img.shields.io/npm/v/npmdoc-ursa.svg?style=flat-square)](https://www.npmjs.org/package/npmdoc-ursa) [![travis-ci.org build-status](https://api.travis-ci.org/npmdoc/node-npmdoc-ursa.svg)](https://travis-ci.org/npmdoc/node-npmdoc-ursa)
+#### basic api documentation for  [ursa (v0.9.4)](https://github.com/quartzjer/ursa)  [![npm package](https://img.shields.io/npm/v/npmdoc-ursa.svg?style=flat-square)](https://www.npmjs.org/package/npmdoc-ursa) [![travis-ci.org build-status](https://api.travis-ci.org/npmdoc/node-npmdoc-ursa.svg)](https://travis-ci.org/npmdoc/node-npmdoc-ursa)
 
 #### RSA public/private key OpenSSL bindings for node and io.js
 
@@ -88,7 +88,8 @@
         "install": "node-gyp rebuild",
         "test": "node test/test.js"
     },
-    "version": "0.9.4"
+    "version": "0.9.4",
+    "bin": {}
 }
 ```
 
